@@ -4,35 +4,35 @@
     /*------------------------------------------
         = DONATE MODAL
     -------------------------------------------*/
-    if ($("#donate-modal").length && $(".buttonDonate").length  && $(".donate-modal-close").length) {
-		$(document).on('click','.buttonDonate',function(){
-			$("#donate-modal").show();
-			if ($('body').hasClass('offcanvas')) {
-                $('body').removeClass('offcanvas');
-                $('.js-oliven-nav-toggle').removeClass('active');
-            }
-		});
-		$(document).on('click','.donate-modal-close',function(){
-			$("#donate-modal").hide();
-		});
-		$(document).on('click','body',function(e){
-			if(e.target.id == $("#donate-modal").attr('id')) { $("#donate-modal").hide(); }
-		});
-	}
+    // if ($("#donate-modal").length && $(".buttonDonate").length  && $(".donate-modal-close").length) {
+	// 	$(document).on('click','.buttonDonate',function(){
+	// 		$("#donate-modal").show();
+	// 		if ($('body').hasClass('offcanvas')) {
+    //             $('body').removeClass('offcanvas');
+    //             $('.js-oliven-nav-toggle').removeClass('active');
+    //         }
+	// 	});
+	// 	$(document).on('click','.donate-modal-close',function(){
+	// 		$("#donate-modal").hide();
+	// 	});
+	// 	$(document).on('click','body',function(e){
+	// 		if(e.target.id == $("#donate-modal").attr('id')) { $("#donate-modal").hide(); }
+	// 	});
+	// }
 	
-	$(document).on('click', '.crypto-item', function(){
-		let parent = $(this).parents('.donate-card');
-		parent.find('.cryptos-box-view').show();
-		parent.find('.cryptos-box-view .coin-img').html('<img src="'+$(this).data('img')+'" />');
-		parent.find('.cryptos-box-view .coin-id').html($(this).data('id'));
-		parent.find('.cryptos-box-view .coin-address').html($(this).data('address'));
-		parent.find('.cryptos-box-view .coin-qr-code').html('').qrcode({width: 160,height: 160,text: $(this).data('address')});
-	});
+	// $(document).on('click', '.crypto-item', function(){
+	// 	let parent = $(this).parents('.donate-card');
+	// 	parent.find('.cryptos-box-view').show();
+	// 	parent.find('.cryptos-box-view .coin-img').html('<img src="'+$(this).data('img')+'" />');
+	// 	parent.find('.cryptos-box-view .coin-id').html($(this).data('id'));
+	// 	parent.find('.cryptos-box-view .coin-address').html($(this).data('address'));
+	// 	parent.find('.cryptos-box-view .coin-qr-code').html('').qrcode({width: 160,height: 160,text: $(this).data('address')});
+	// });
 	
-	$(document).on('click', '.cryptos-box-view-close', function(){
-		let parent = $(this).parents('.donate-card');
-		parent.find('.cryptos-box-view').hide();
-	});
+	// $(document).on('click', '.cryptos-box-view-close', function(){
+	// 	let parent = $(this).parents('.donate-card');
+	// 	parent.find('.cryptos-box-view').hide();
+	// });
 	/*------------------------------------------
         = WISH FORM SUBMISSION
     -------------------------------------------*/
@@ -207,12 +207,20 @@ $(document).ready(function() {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
-$(document).on('click', '#playerVolumeOff', function (e) {
-    $(this).hide();
-    $(this).parents('.playerIcon').find('#playerVolumeOn').show();
-});
-$(document).on('click', '#playerVolumeOn', function (e) {
-    $(this).hide();
-    $(this).parents('.playerIcon').find('#playerVolumeOff').show();
-});
+    $(document).on('click', '#playerVolumeOff', function (e) {
+        var audio = document.getElementById('playerAudio');
+        if (audio) {
+            audio.play();
+        }
+        $(this).hide();
+        $(this).parents('.playerIcon').find('#playerVolumeOn').show();
+    });
+    $(document).on('click', '#playerVolumeOn', function (e) {
+        var audio = document.getElementById('playerAudio');
+        if (audio) {
+            audio.pause();
+        }
+        $(this).hide();
+        $(this).parents('.playerIcon').find('#playerVolumeOff').show();
+    });
 });
