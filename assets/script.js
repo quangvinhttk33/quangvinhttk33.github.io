@@ -207,4 +207,12 @@ $(document).ready(function() {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
+$(document).on('click', '#playerVolumeOff', function (e) {
+    $(this).hide();
+    $(this).parents('.playerIcon').find('#playerVolumeOn').show();
+});
+$(document).on('click', '#playerVolumeOn', function (e) {
+    $(this).hide();
+    $(this).parents('.playerIcon').find('#playerVolumeOff').show();
+});
 });
