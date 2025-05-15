@@ -328,7 +328,6 @@ header .navbar-brand {
   color: #c19fad;
 }
 
-
 .weddingdate-section .countdown .box {
   color: #c19fad !important;
 }
@@ -341,6 +340,39 @@ header .navbar-brand {
   border-bottom: 1px solid #c6c6c6;
   padding-bottom: 20px;
 }
+
+/* Fix mini_calendar hiển thị trên iOS */
+.weddingdate-section .mini_calendar {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.weddingdate-section .mini_calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: transparent;
+}
+.weddingdate-section .mini_calendar th,
+.weddingdate-section .mini_calendar td {
+  min-width: 32px;
+  height: 32px;
+  text-align: center;
+  font-size: 16px;
+  color: #c19fad;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  word-break: keep-all;
+  -webkit-user-select: none;
+}
+
 /* story-section */
 
 .story-section .timeline .title {
